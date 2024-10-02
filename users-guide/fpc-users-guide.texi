@@ -1,0 +1,68 @@
+\input texinfo   @c -*-texinfo-*-
+@c %**start of header
+@settitle Free Pascal User's Guide
+@setfilename fpc-users-guide.info
+
+@c Create a separate index for command line options.
+@defcodeindex op
+@c Merge the standard indexes into a single one.
+@syncodeindex fn cp
+@syncodeindex vr cp
+@syncodeindex ky cp
+@syncodeindex pg cp
+@syncodeindex tp cp
+
+@paragraphindent 2
+@documentlanguage en_US
+@c %**end of header
+
+@ifinfo
+@format
+@dircategory Free Pascal and Lazarus
+@direntry
+* Free Pascal User's Guide: (fpc).      The Free Pascal User's Guide.
+@end direntry
+@end format
+@insertcopying
+@end ifinfo
+
+@copying
+Copyright @copyright{} 2021 Michaël Van Canneyt and Florian Klämpfl,
+2024 Stefan-Iulian Alecu.
+
+@quotation
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+@end quotation
+@end copying
+
+@titlepage
+@title Free Pascal User's Guide
+@author Michaël Van Canneyt and Florian Klämpfl
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@node Top
+@top Free Pascal User's Guide
+
+@menu
+* Introduction::                The introduction.
+@end menu
+
+@include introduction.texi
+
+@bye
