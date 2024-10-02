@@ -1,0 +1,364 @@
+@c Copyright (C) 2021 Michaël Van Canneyt and Florian Klämpfl, 2024 Stefan-Iulian Alecu.
+@c This is part of the Free Pascal User's Guide.
+@c For copying conditions, see the file fpc-users-guide.texi.
+
+@node Installing
+@chapter Installing
+
+@node Requirements
+@section Requirements
+
+@node Hardware requirements
+@subsection Hardware requirements
+
+The compiler needs at least one of the following processors, depending
+on your platform:
+
+@itemize @bullet
+@item
+An Intel 80386 or higher processor.
+
+A coprocessor is not required, although it will slow down your
+program’s performance if you do floating point calculations without a
+coprocessor, since emulation will be used;
+
+@item
+An AMD64 or EMT64 processor;
+
+@item
+A PowerPC processor (32 or 64 bit);
+
+@item
+A SPARC processor (32 or 64 bit);
+
+@item
+An ARM processor (32 or 64 bit);
+@end itemize
+
+Older FPC versions exist for the Motorola 68000 (m68k) processor, but
+these are no longer maintained.
+
+The memory and disk requirements vary from platform to platform. One
+should count in the order of 100 megabytes for a basic installation; 2
+gigabytes should be counted if you want to recompile the compiler and
+all basic packages.
+
+@node Software requirements
+@subsection Software requirements
+
+Under DOS, the DOS distribution contains all the files you need to run
+the compiler and compile Pascal programs.
+
+Under Unix systems (such as Linux), you need to have the following
+programs installed:
+
+@enumerate
+@item
+@sc{GNU} @command{as}, the @sc{GNU} assembler;
+@item
+@sc{GNU} @command{ld}, the @sc{GNU} linker;
+@item
+(optionally, but highly recommended) @sc{GNU} Make. For easy
+recompiling of the compiler and Run-Time Library, this is needed.
+@end enumerate
+
+Under Microsoft Windows, the distributions (both 32 and 64 bit)
+contain all the files you need to run the compiler and compile Pascal
+programs. However, it may be a good idea to install the MinGW tools or
+the Cygwin development tools. Links to both of these tools can be
+found on @url{http://www.freepascal.org}.
+
+Under OS/2, while the Free Pascal distribution comes with all
+necessary tools, it is a good idea to install the EMX extender in
+order to compile and run programs with the Free Pascal compiler. The
+EMX extender can be found on
+@url{https://sourceforge.net/projects/emx/files/emx/0.9d-fix04/,,Sourceforge}.
+
+Under Mac OS X, version 10.1 or higher is required, and the developer
+tools or XCode must be installed. The installer contains the necessary
+instructions.
+
+@node Installing the compiler
+@section Installing the compiler
+
+The installation of Free Pascal is easy, but is platform-dependent. We
+discuss the process for each platform separately.
+
+@node Installing under Windows
+@subsection Installing under Windows
+
+For Windows, there is a Windows installer, @file{setup.exe}. This is a
+normal installation program, which offers the usual options of
+selecting a directory, and which parts of the distribution you want to
+install. It will, optionally, associate the @file{.pp} or @file{.pas}
+extensions with the text mode @acronym{IDE, Integrated Development
+Environment}.
+
+It is not recommended to install the compiler in a directory which has
+spaces in its path name. Some of the external tools do not support
+filenames with spaces in them, and you will have problems creating
+programs.
+
+@node Installing under DOS or OS/2
+@subsection Installing under DOS or OS/2
+
+First, you must get the latest distribution files of Free Pascal. They
+come as zip files, which you must unzip first, or you can download the
+compiler as a series of separate files. This is especially useful if
+you have a slow connection, but it is also nice if you want to install
+only some parts of the compiler distribution. The distribution zip
+files for DOS or OS/2 contain an installation program
+@file{INSTALL.EXE}. You must run this program to install the compiler.
+
+@ifnotinfo
+
+The screen of the DOS or OS/2 installation program looks like
+@ref{fig:install-dos}.
+
+@float Figure,fig:install-dos
+@caption{The DOS install program screen.}
+@center @image{assets/install1,,9cm,,.png}
+@end float
+
+@end ifnotinfo
+
+The program allows you to select:
+
+@itemize @bullet
+@item
+What components you wish to install (e.g do you want the sources or
+not, do you want docs or not etc.) Items that you didn’t download when
+downloading as separate files, will not be enabled, i.e. you can’t
+select them.
+@item
+Where you want to install (the default location is @file{C:\PP}).
+@end itemize
+
+In order to run Free Pascal from any directory on your system, you
+must extend your path variable to contain the @file{C:\PP\BIN}
+directory. Usually this is done in the @file{AUTOEXEC.BAT} file. It
+should look something like this:
+
+@example bat
+SET PATH=%PATH%;C:\PP\BIN\GO32V2
+@end example
+
+for DOS, or
+
+@example bat
+SET PATH=%PATH%;C:\PP\BIN\OS2
+@end example
+
+for OS/2. (Again, assuming that you installed in the default
+location).
+
+On OS/2, Free Pascal installs some libraries from the EMX package if
+they were not yet installed. (The installer will notify you if they
+should be installed). They are located in the @file{C:\PP\DLL}
+directory. The name of this directory should be added to the
+@env{LIBPATH} directive in the @file{config.sys} file:
+
+@example bat
+LIBPATH=XXX;C:\PP\DLL
+@end example
+
+Obviously, any existing directories in the @env{LIBPATH} directive
+(indicated by @file{XXX} in the above example) should be preserved.
+
+For people who have an older CPU type, without a math coprocessor
+(i387) it is necessary to install a coprocessor emulation, since Free
+Pascal uses the coprocessor to do all floating point operations. The
+installation of the coprocessor emulation is handled by the
+installation program (@file{INSTALL.EXE}) under DOS and Windows.
+
+@node Installing under Linux
+@subsection Installing under Linux
+
+The Linux distribution of Free Pascal comes in three forms:
+@itemize @bullet
+@item
+a @file{.tar.gz} version, also available as separate files;
+@item
+a @file{.rpm} version, corresponding to the @acronym{RPM, RedHat
+Package Manager} (used on RedHat, but also Fedora, openSuSE, Mageia,
+OpenMandriva etc.), and
+@item
+a @file{.deb} version, for all deb-based distributions such as Debian,
+Ubuntu, Linux Mint, elementary OS etc.).
+@end itemize
+
+If you use the @file{.rpm} format, the installation is:
+
+@example sh
+rpm -i fpc-3.2.2-1.ARCH.rpm
+@end example
+
+where @var{ARCH} is one of the supported architectures (i686, x86_64
+etc.).
+
+If you use the @file{.deb} format, the installation is:
+
+@example sh
+dpkg -i fpc-3.2.2.deb
+@end example
+
+You need root access to install these packages. The @file{.tar} file
+allows you to do an installation below your home directory if you
+don’t have root permissions.
+
+When downloading the @file{.tar} file, or the separate files,
+installation is more interactive.
+
+In case you downloaded the @file{.tar} file, you should first untar
+the file, in some directory where you have write permission, using the
+following command:
+
+@example sh
+tar -xvf fpc.tar
+@end example
+
+For generality, we'll assume the file is named @file{fpc.tar},
+omitting the version number. When the file is untarred, you will be
+left with more archive files, and an install program: an installation
+shell script.
+
+If you downloaded the files as separate files, you should at least
+download the @command{install.sh} script, and the libraries (in
+@file{libs.tar.gz}).
+
+To install Free Pascal, all that you need to do now is give the
+following command:
+
+@example sh
+./install.sh
+@end example
+
+And then you must answer some questions. They’re very simple, they’re
+mainly concerned with 2 things:
+
+@enumerate
+@item
+Places where you can install different things;
+@item
+Deciding if you want to install certain components (such as sources
+and demo programs).
+@end enumerate
+
+The script will automatically detect which components are present and
+can be installed. It will only offer to install what has been
+found. Because of this feature, you must keep the original names when
+downloading, since the script expects this.
+
+If you run the installation script as the root user, you can just
+accept all installation defaults. If you don’t run as root, you must
+take care to supply the installation program with directory names
+where you have write permission, as it will attempt to create the
+directories you specify. In principle, you can install it wherever you
+want, though.
+
+At the end of installation, the installation program will generate a
+configuration file (@file{fpc.cfg}) for the Free Pascal compiler which
+reflects the settings that you chose. It will install this file in the
+@file{/etc} directory or in your home directory (with name
+@file{.fpc.cfg}) if you do not have write permission in the
+@file{/etc} directory. It will make a copy in the directory where you
+installed the libraries.
+
+The compiler will first look for a file @file{.fpc.cfg} in your home
+directory before looking in the @file{/etc} directory.
+
+@node Optional configuration steps
+@section Optional configuration steps
+
+On any platform, after installing the compiler you may wish to set
+some environment variables. The Free Pascal compiler recognizes the
+following variables:
+@itemize
+@item
+@env{PPC_EXEC_PATH} contains the directory where support files for the
+compiler can be found.
+@item
+@env{PPC_CONFIG_PATH} specifies an alternate path to find the
+@file{fpc.cfg}.
+@item
+@env{PPC_ERROR_FILE} specifies the path and name of the
+error-definition file.
+@item
+@env{FPCDIR} specifies the root directory of the Free Pascal
+installation. (e.g: @file{C:\PP\BIN})
+@end itemize
+
+These locations are, however, set in the sample configuration file
+which is built at the end of the installation process, except for the
+@env{PPC_CONFIG_PATH} variable, which you must set if you didn’t
+install things in the default places.
+
+@node Before compiling
+@section Before compiling
+
+Also distributed in Free Pascal is a @file{README} file. It contains
+the latest instructions for installing Free Pascal, and should always
+be read first. Furthermore, platform-specific information and common
+questions are addressed in the FAQ. It should be read before reporting
+any bug.
+
+@node Testing the compiler
+@section Testing the compiler
+
+After the installation is completed and the optional environment
+variables are set as described above, your first program can be
+compiled.
+
+Included in the Free Pascal distribution are some demonstration
+programs, showing what the compiler can do. You can test if the
+compiler functions correctly by trying to compile these programs. The
+compiler is called @file{fpc.exe} under Windows, OS/2 and DOS, and
+@file{fpc} under most other operating systems.
+
+To compile a program (e.g @file{demo\text\hello.pp}), copy the program
+to your current working directory, and simply type:
+
+@example sh
+fpc hello
+@end example
+
+at the command prompt. If you don’t have a configuration file, then
+you may need to tell the compiler where it can find the units, for
+instance as follows:
+
+@example bat
+fpc -Fuc:\pp\units\go32v2\rtl hello
+@end example
+
+under DOS, and under Linux you could type
+
+@example sh
+fpc -Fu/usr/lib/fpc/3.2.2/units/x86_64-linux/rtl hello
+@end example
+
+This is, of course, assuming that you installed under @file{C:\PP} or
+@file{/usr/lib/fpc/3.2.2}, respectively.
+
+If you got no error messages, the compiler has generated an executable
+called @file{hello.exe} under DOS, OS/2 or Windows, or @file{hello}
+(no extension) under Unix and most other operating systems.
+
+To execute the program, simply type:
+
+@example sh
+hello
+@end example
+
+or
+
+@example sh
+./hello
+@end example
+
+on Unices (where the current directory usually is not in the
+@env{PATH}). If all went well, you should see the following friendly
+greeting:
+
+@example
+Hello world
+@end example

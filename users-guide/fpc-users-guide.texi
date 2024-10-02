@@ -61,8 +61,11 @@ along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 @menu
 * Introduction::                The introduction.
+* Installing::                  Installing the Free Pascal compiler.
 @end menu
 
 @include introduction.texi
+@include installing.texi
 
 @bye
+
