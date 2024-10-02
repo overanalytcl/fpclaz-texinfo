@@ -1,0 +1,183 @@
+@c Copyright (C) 2021 Michaël Van Canneyt and Florian Klämpfl, 2024 Stefan-Iulian Alecu.
+@c This is part of the Free Pascal User's Guide.
+@c For copying conditions, see the file fpc-users-guide.texi.
+
+@node Introduction
+@chapter Introduction
+
+@node About this document
+@section About this document
+
+This is the user’s guide for Free Pascal. It describes the
+installation and use of the Free Pascal compiler on the different
+supported platforms. It does not attempt to give an exhaustive list of
+all supported commands, nor a definition of the Pascal language. Look
+at the Reference Guide for these things. For a description of the
+possibilities and the inner workings of the compiler, see the
+Programmer’s Guide. In the appendices of this document you will find
+lists of reserved words and compiler error messages (with
+descriptions).
+
+This document describes the compiler as it is/functions at the time of
+writing. First consult the README and FAQ files, distributed with the
+compiler. The README and FAQ files are, in case of conflict with this
+manual, authoritative.
+
+@node About the compiler
+@section About the compiler
+
+Free Pascal is a 32-- and 64--bit Pascal compiler. The current version
+(3.2.2) can compile code for the following processors (the list is not
+exhaustive):
+
+@itemize @bullet
+@item
+Intel i386 and higher (i486, Pentium family and higher);
+
+@item
+AMD64/x86_64;
+
+@item
+PowerPC (and PowerPC64);
+
+@item
+SPARC;
+
+@item
+ARM;
+
+@item
+The Motorola 68000 (m68k) processors are supported by an older version;
+
+@item
+JVM (Java Virtual Machine);
+
+@item
+JavaScript;
+
+@item
+aarch64;
+
+@item
+Intel 8086.
+@end itemize
+
+The compiler and Run-Time Library are available for the following
+operating systems:
+
+@itemize @bullet
+@item
+MS-DOS;
+
+@item
+Linux;
+
+@item
+Windows;
+
+@item
+Mac OS X, macOS and iOS;
+
+@item
+Amiga (version 0.99.5 only);
+
+@item
+OS/2 (optionally using the EMX package, so it also works on MS-DOS/Windows);
+
+@item
+FreeBSD;
+
+@item
+BeOS;
+
+@item
+Solaris;
+
+@item
+NetBSD;
+
+@item
+Netware;
+
+@item
+OpenBSD;
+
+@item
+MorphOS;
+
+@item
+Symbian.
+@end itemize
+
+The complete list is at all times available on the @url{https://www.freepascal.org/,Free Pascal
+website}.
+
+Free Pascal is designed to be, as much as possible, language and
+source-level compatible with ISO Pascal, Mac Pascal, Turbo Pascal 7.0
+and most (if not all) versions of Delphi. It achieves this through a
+system of compiler directives which tell the compiler what language is
+targeted (they can be mixed to a certain degree).
+
+It also differs from them in the sense that you cannot use compiled
+units from one system for the other, i.e. you cannot use @acronym{TP,
+Turbo Pascal} compiled units.
+
+Also, there is a text version of an @acronym{IDE, Integrated
+Development Environment} available for Free Pascal. Users that prefer
+a graphical IDE can have a look at the
+@url{https://www.lazarus-ide.org/,Lazarus} or
+@url{https://mseide-msegui.sourceforge.io/,MSEIDE} projects.
+
+Free Pascal consists of several parts:
+
+@enumerate
+@item
+The compiler program itself;
+@item
+The Run-Time Library (RTL);
+@item
+The packages. This is a collection of many utility units, ranging from
+the whole Windows 32 API, through native ZIP/BZIP file handling to the
+whole GTK-2 interface;
+@item
+The Free Component Library. This is a set of class-based utility units
+which give a database framework, image support, web support, XML
+support and many, many more;
+@item
+Utility programs and units.
+@end enumerate
+
+Of these you only need the first two, in order to be able to use the
+compiler. In this document, we describe the use of the compiler and
+utilities. The supported (Object) Pascal Language constructs are
+described in the Reference Guide, and the available routines (units)
+are described in the RTL and FCL Unit reference guides.
+
+@node Getting more information
+@section Getting more information
+
+If the documentation doesn't give an answer to your questions, you can
+obtain more information on the Internet, at the following addresses:
+
+@itemize @bullet
+@item
+@url{http://www.freepascal.org/} is the main site. It contains useful
+mail addresses and links to other places, as well as instructions for
+subscribing to the mailing list.
+@item
+@url{http://forum.lazarus.freepascal.org/} is a forum site where
+questions can be posted.
+@end itemize
+
+Other than that, some mirrors exist.
+
+Finally, if you think something should be added to this manual, please
+do not hesitate and contact @email{michael@@freepascal.org, Michaël
+Van Canneyt}. If you notice any mistakes in this Texinfo manual (typos
+or anything else), email @email{stefan.alecu2001@@gmail.com,me} or
+make an issue at
+@url{https://github.com/overanalytcl/fpclaz-texinfo/issues,this
+link}. This work is on a best-effort basis, and as such mistakes can
+creep in.
+
+Let’s get on with something useful.
