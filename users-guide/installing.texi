@@ -143,13 +143,13 @@ should look something like this:
 SET PATH=%PATH%;C:\PP\BIN\GO32V2
 @end example
 
-for DOS, or
+@noindent for DOS, or
 
 @example bat
 SET PATH=%PATH%;C:\PP\BIN\OS2
 @end example
 
-for OS/2. (Again, assuming that you installed in the default
+@noindent for OS/2. (Again, assuming that you installed in the default
 location).
 
 On OS/2, Free Pascal installs some libraries from the EMX package if
@@ -193,7 +193,7 @@ If you use the @file{.rpm} format, the installation is:
 rpm -i fpc-3.2.2-1.ARCH.rpm
 @end example
 
-where @var{ARCH} is one of the supported architectures (i686, x86_64
+@noindent where @var{ARCH} is one of the supported architectures (i686, x86_64
 etc.).
 
 If you use the @file{.deb} format, the installation is:
@@ -311,7 +311,7 @@ compiled.
 
 Included in the Free Pascal distribution are some demonstration
 programs, showing what the compiler can do. You can test if the
-compiler functions correctly by trying to compile these programs. The
+compiler functions correctly by trying to compile these programs.  The
 compiler is called @file{fpc.exe} under Windows, OS/2 and DOS, and
 @file{fpc} under most other operating systems.
 
@@ -322,7 +322,7 @@ to your current working directory, and simply type:
 fpc hello
 @end example
 
-at the command prompt. If you don’t have a configuration file, then
+@noindent at the command prompt. If you don’t have a configuration file, then
 you may need to tell the compiler where it can find the units, for
 instance as follows:
 
@@ -330,34 +330,23 @@ instance as follows:
 fpc -Fuc:\pp\units\go32v2\rtl hello
 @end example
 
-under DOS, and under Linux you could type
+@noindent under DOS, and under Linux you could type
 
 @example sh
 fpc -Fu/usr/lib/fpc/3.2.2/units/x86_64-linux/rtl hello
 @end example
 
-This is, of course, assuming that you installed under @file{C:\PP} or
-@file{/usr/lib/fpc/3.2.2}, respectively.
+@noindent This is, of course, assuming that you installed under
+@file{C:\PP} or @file{/usr/lib/fpc/3.2.2}, respectively.
 
 If you got no error messages, the compiler has generated an executable
 called @file{hello.exe} under DOS, OS/2 or Windows, or @file{hello}
 (no extension) under Unix and most other operating systems.
 
-To execute the program, simply type:
-
-@example sh
-hello
-@end example
-
-or
-
-@example sh
-./hello
-@end example
-
-on Unices (where the current directory usually is not in the
-@env{PATH}). If all went well, you should see the following friendly
-greeting:
+To execute the program, simply type @command{hello} or
+@command{./hello} on Unices (where the current directory usually is
+not in the @env{PATH}). If all went well, you should see the following
+friendly greeting:
 
 @example
 Hello world

@@ -62,10 +62,15 @@ along with this program; if not, see <https://www.gnu.org/licenses/>.
 @menu
 * Introduction::                The introduction.
 * Installing::                  Installing the Free Pascal compiler.
+* Index::                       Complete index.
 @end menu
 
 @include introduction.texi
 @include installing.texi
+
+@node Index
+@unnumbered Index
+@printindex cp
 
 @bye
 
